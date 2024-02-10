@@ -1,5 +1,5 @@
 <div>
-  <h1>{{ 'demo.heading' | translate }}</h1>
+  <h1>{{ 'demo.title' | translate }}</h1>
 
   <!-- translation: translation pipe -->
   <p>{{ 'demo.text' | translate }}</p>
@@ -9,6 +9,13 @@
 
   <!-- translation: directive (key as content of element) -->
   <p translate>demo.text</p>
+
+  <h3>Pluralization</h3>
+  <ul>
+    <li translate="" [translateParams]="{ count: 1 }">icu.pluralization</li>
+    <li>{{'icu.pluralization' | translate:{ 'count': 2 } }}</li>
+  </ul>
+
 </div>
 
 <!-- Selecciona el idioma -->

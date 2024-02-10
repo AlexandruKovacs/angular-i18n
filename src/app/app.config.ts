@@ -4,8 +4,10 @@ import { provideRouter } from '@angular/router';
 
 import { environment } from '../environments/environment';
 
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateCompiler } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import {TranslateMessageFormatCompiler} from 'ngx-translate-messageformat-compiler';
 
 import { routes } from './app.routes';
 
@@ -17,6 +19,11 @@ export const appConfig: ApplicationConfig = {
             provide: TranslateLoader,
             useFactory: HttpLoaderFactory,
             deps: [HttpClient]
+        },
+
+        compiler: {
+            provide: TranslateCompiler,
+            useClass: TranslateMessageFormatCompiler
         }
       }),
     ),
