@@ -1,0 +1,16 @@
+{
+	"demo": {
+		"greeting": "Γεια σου {name}!",
+		"text": "Αυτή είναι μια απλή εφαρμογή επίδειξης για το ngx-translate",
+		"title": "Επίδειξη μετάφρασης"
+	},
+	"icu": {
+		"pluralization": "Υπάρχει {count, plural, =0{δεν υπάρχει μήλο} one{ένα μήλο} other{υπάρχουν αρκετά μήλα}}.",
+		"select": "{gender, select, male{Ο χρήστης} female{Η χρήστρια} other{Χρησιμοποιούν }} {product}"
+	},
+	"messagebox": {
+		"warning": {
+			"text": "Προειδοποίηση!"
+		}
+	}
+}
