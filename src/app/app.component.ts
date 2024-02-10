@@ -17,10 +17,11 @@ export class AppComponent {
 
   initLanguage(): void {
 
-    const lang = sessionStorage.getItem('lang');
+    const default_lang = sessionStorage.getItem('default_lang');
 
-    if (lang) {
-      this.translate.use(lang);
+    if (default_lang) {
+      this.translate.setDefaultLang(default_lang);
+      this.translate.use(default_lang);
     } else {
       this.translate.setDefaultLang('en');
       this.translate.use('en');
@@ -28,7 +29,9 @@ export class AppComponent {
   }
 
   useLanguage(language: string): void {
+
     this.translate.use(language);
-    sessionStorage.setItem('SAVED_LANGUAGE', language);
+    sessionStorage.setItem('default_lang', language);
+
   }
 }
