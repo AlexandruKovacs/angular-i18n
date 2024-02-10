@@ -2,6 +2,7 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 
+import { environment } from '../environments/environment';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -25,5 +26,5 @@ export const appConfig: ApplicationConfig = {
 
 // Requerido para compliación AOT (ahead of time)
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, `${environment.baseUrl}./assets/i18n/`, '.json');
 }
