@@ -31,7 +31,7 @@ export const appConfig: ApplicationConfig = {
   ]
 };
 
-// Requerido para compliación AOT (ahead of time)
+// Requerido para compilación AOT (ahead of time)
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, `${environment.baseUrl}./assets/i18n/`, '.json');
 }
