@@ -21,3 +21,36 @@
 <!-- Selecciona el idioma -->
 <button (click)="useLanguage('en')">English</button>
 <button (click)="useLanguage('gr')">Greek</button>
+
+<div>
+  <h1>Intl Phone Input</h1>
+
+  <form [formGroup]="phoneForm">
+
+    <div class="form-group">
+
+      <lac-mat-country-selector
+        matPrefix
+        [preferredCountries]="['gr', 'es', 'pt']"
+        [showDialCode]="true"
+        [disableSearch]="false"
+        [selectorFor]="inputPhone"
+      ></lac-mat-country-selector>
+
+      <lac-mat-tel-input
+        #inputPhone
+        formControlName="phone"
+      ></lac-mat-tel-input>
+
+    </div>
+
+    <div>
+      <strong>Form value:</strong>
+      <pre>{{ phoneForm.value | json }}</pre>
+    </div>
+
+  </form>
+</div>
+
+
+

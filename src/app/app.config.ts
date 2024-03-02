@@ -1,6 +1,7 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { environment } from '../environments/environment';
 
@@ -27,7 +28,7 @@ export const appConfig: ApplicationConfig = {
         }
       }),
     ),
-    provideRouter(routes)
+    provideRouter(routes), provideAnimationsAsync()
   ]
 };
 

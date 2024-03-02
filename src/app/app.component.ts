@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
@@ -8,17 +8,35 @@ import greekLanguage from '../assets/i18n/gr.json';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
+import { LacMatTelInputModule } from 'lac-mat-tel-input';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, TranslateModule],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    TranslateModule,
+    LacMatTelInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(private translate: TranslateService) {
+  public phoneForm = this.fb.group({
+    phone: ['']
+  });
+
+  constructor(private translate: TranslateService, private fb: FormBuilder) {
     this.initLanguage();
+  }
+
+  ngOnInit(): void {
+    this.phoneForm.controls.phone.setValidators([Validators.required]);
   }
 
   initLanguage(): void {
